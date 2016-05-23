@@ -2,8 +2,8 @@
 ##Analyzing Data from FitBit
 
 ---
-Bhuwan Prasad Upadhyay
-April, 2016
+Lok Raj Bist
+May, 2016
 ---
 ###Introduction
 This is the first project of the Reproducible Research course in Coursera's Data Science Specialization track. This project is to answer the questions using data collectd from a FitBit.
@@ -48,6 +48,7 @@ totalStepsByDay <- tapply(fitBitActivityData$steps, fitBitActivityData$date, sum
 ```{r}
 qplot(totalStepsByDay, col='blurrywood2', xlab='Total steps/day', ylab='Frequency using binwith 500', binwidth=500)
 ```
+![Plot1](figure/plot1.png) 
 
 ##### 2. Calculate and report the mean and median total number of steps taken/day
 ```{r}
@@ -71,6 +72,8 @@ ggplot(data=averageActivityStepsPerTimeBlock,col='blurrywood2', aes(x=interval, 
     xlab("5-minute interval") +
     ylab("average number of steps taken") 
 ```
+![Plot2](figure/plot2.png) 
+
 
 ##### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ```{r}
@@ -103,6 +106,7 @@ fitBitActivityDataImputed$steps <- impute(fitBitActivityData$steps, fun=mean)
 totalStepsByDayImputed <- tapply(fitBitActivityDataImputed$steps, fitBitActivityDataImputed$date, sum)
 qplot(totalStepsByDayImputed,col='blurrywood2', xlab='Total steps/day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
 ```
+![Plot3](figure/plot3.png) 
 
 ##### ... and Calculate and report the mean and median total number of steps taken per day. 
 ```{r}
@@ -132,3 +136,4 @@ ggplot(averagedfitBitActivityDataImputed,col='blue', aes(interval, steps)) +
     xlab("5-minute interval") + 
     ylab("avarage number of steps")
 ```
+![Plot4](figure/plot4.png) 
